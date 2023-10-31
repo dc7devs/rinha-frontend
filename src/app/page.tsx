@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import PreComp from "./components";
 
 export default function Home() {
@@ -27,8 +27,8 @@ export default function Home() {
         try {
           setIsLoadingFile(true);
           setFileName(file.name);
-          
-          const content = readFileAsync(file);
+
+          const content = await readFileAsync(file);
           const parsedData = JSON.parse(content);
 
           setJsonData(parsedData)
